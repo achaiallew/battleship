@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Boats : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        
     }
 }

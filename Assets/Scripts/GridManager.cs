@@ -10,6 +10,7 @@ public class GridManager : MonoBehaviour
 
 [SerializeField] private Transform tilesParent;
 
+
 void Start()
     {
         GenerateGrid();
@@ -17,17 +18,16 @@ void Start()
 
  void GenerateGrid()
     {
-
-        int row = 0;
+        int col = 0;
         // Loop Over Width 
         for (float x = -2.25f; x <= width;)
         {
-            int col = 0;
+            int row = 0;
             // Loop Over Height
             for (float y = -4.25f; y <= height;)
             {
                 var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-                spawnedTile.name = $"Tile {x} {y}";
+                spawnedTile.name = $"Tile {row} {col}";
                 spawnedTile.transform.SetParent(tilesParent);
 
                 bool isOffset = ((row + col) % 2 != 0);
@@ -35,11 +35,11 @@ void Start()
 
                 
                 y += 0.5f;  
-                col ++;   
+                row ++;   
             }
 
             x += 0.5f;
-            row ++;
+            col ++;
         }
 
     }
