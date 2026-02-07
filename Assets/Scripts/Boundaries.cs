@@ -22,12 +22,20 @@ public class Boundries : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Vector2 pos = rb.position;
+        float clampY = transform.position.y;
+        float clampX = transform.position.x;
+  
 
-        pos.x = Mathf.Clamp(pos.x, minX + boatWidth, maxX - boatWidth);
-        pos.y = Mathf.Clamp(pos.y, minY + boatHeight, maxY - boatHeight);
+        // 2. Clamp X (Left and Right)
+        if (clampX - boatWidth <= minX) clampX = minX + boatWidth;
+        else if (clampX + boatWidth >= maxX) clampX = maxX - boatWidth;
 
-        rb.position = pos;
-    }
+        // 3. Clamp Y (Top and Bottom)
+        if (clampY - boatHeight <= minY) clampY = minY + boatHeight;
+        else if (clampY + boatHeight >= maxY) clampY = maxY - boatHeight;
+
+        // 4. Apply both at once
+        transform.position = new Vector3(clampX, clampY, 0);
+        
+    }      
 }

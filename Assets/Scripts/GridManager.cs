@@ -1,22 +1,25 @@
-using System.Runtime.Serialization;
 using UnityEngine;
 using System;
+using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 public class GridManager : MonoBehaviour
 {
- [SerializeField] private float width, height;
+    [SerializeField] private float width, height;
 
- [SerializeField] private Tile tilePrefab;
+    [SerializeField] private Tile tilePrefab;
 
-[SerializeField] private Transform tilesParent;
+    [SerializeField] private Transform tilesParent;
 
 
-void Start()
+    public List<Tile> tiles = new List<Tile>();
+
+    void Start()
     {
         GenerateGrid();
     }
 
- void GenerateGrid()
+    void GenerateGrid()
     {
         int col = 0;
         // Loop Over Width 
@@ -27,12 +30,13 @@ void Start()
             for (float y = -4.25f; y <= height;)
             {
                 var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-                spawnedTile.name = $"Tile {row} {col}";
                 spawnedTile.transform.SetParent(tilesParent);
 
                 bool isOffset = ((row + col) % 2 != 0);
-                spawnedTile.Init(isOffset);     
+                spawnedTile.Init(isOffset, row, col);
+                tiles.Add(spawnedTile);
 
+                spawnedTile.name = $"Tile {row} {col}";
                 
                 y += 0.5f;  
                 row ++;   
@@ -43,4 +47,6 @@ void Start()
         }
 
     }
+
 }
+

@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: d0063e2244e15fe4a9c292e977379652
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - trackingAction: {fileID: -6244235256800276372, guid: e232843fa23c4ec48b717e19b8bb49ae, type: 3}
+  - clickingAction: {fileID: -2432559401828065010, guid: e232843fa23c4ec48b717e19b8bb49ae, type: 3}
+  - rightclickAction: {fileID: -6611032608819969119, guid: e232843fa23c4ec48b717e19b8bb49ae, type: 3}
+  - cam: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

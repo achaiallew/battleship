@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 3
   tags:
   - Boat
+  - Shadow
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tiles
+  - Boats
   - Water
   - UI
-  - 
-  - 
+  - Tiles
+  - Highlight
   - 
   - 
   - 
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: Boats
     uniqueID: 3142423483
+    locked: 0
+  - name: Cannons
+    uniqueID: 1584052293
     locked: 0
   m_RenderingLayers:
   - Default

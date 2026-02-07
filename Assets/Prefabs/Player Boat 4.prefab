@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 561225686851425892}
   - component: {fileID: 6524042844389527671}
   - component: {fileID: 5078946991280694940}
-  - component: {fileID: 4307153934230158660}
-  m_Layer: 0
+  - component: {fileID: 3917245861511209100}
+  - component: {fileID: 2592680368536395607}
+  m_Layer: 3
   m_Name: Player Boat 4
   m_TagString: Boat
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7928451916217354926}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -167,11 +168,11 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4307153934230158660
+--- !u!114 &3917245861511209100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,10 +181,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7928451916217354926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0063e2244e15fe4a9c292e977379652, type: 3}
+  m_Script: {fileID: 11500000, guid: 766429ebf37fa924a9c6781554a88b35, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Boats
-  boatNumber: 4
+  m_EditorClassIdentifier: Assembly-CSharp::Boundries
+--- !u!114 &2592680368536395607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928451916217354926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f69f7ad0652d344b8d6871a77d08a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoatData
+  boatID: 4
+  playerBoat: 1
 --- !u!1001 &981305198447756617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_Name
       value: Shadow Tile 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8548214469787577989, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_LocalScale.x
@@ -266,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow Tile 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8548214469787577989, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.47834396
@@ -336,6 +358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow Tile 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8548214469787577989, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.47834396
@@ -405,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_Name
       value: Shadow Tile 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580733262066776779, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8548214469787577989, guid: ee83fce5f631e1c41a863a213ec90757, type: 3}
       propertyPath: m_LocalScale.x

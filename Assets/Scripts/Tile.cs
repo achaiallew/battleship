@@ -1,49 +1,69 @@
 using UnityEngine;
 
+
 public class Tile : MonoBehaviour
 {
   [SerializeField] private Color baseColour, offsetColour;
   [SerializeField] private SpriteRenderer rendColour;
-  [SerializeField] private GameObject highlight;
+  
+  [SerializeField] private GameObject hover;
 
   public bool isOccupied;
-  private SpriteRenderer rend;
+  public int row;
+  public int col;
 
+  private int boatCount = 0;
 
+  public Vector2 snapPoint;
 
-  void Start()
+  void Awake()
   {
-    rend = GetComponent<SpriteRenderer>();
+    rendColour = GetComponent<SpriteRenderer>();
+    snapPoint = transform.position;
   }
 
-  void Update()
+
+  public void Init(bool isOffset, int r, int c)
   {
-    if (isOccupied)
+    row = r;
+    col = c;
+    isOccupied = false;
+
+    rendColour.color = isOffset ? offsetColour : baseColour;
+    GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Tiles");
+
+  }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.GetComponent<ShadowTile>() != null)
     {
-      string tileName = gameObject.name;
-
-      string[] parts = tileName.Split(' ');
-
-      // parts[0] = "Tile"
-      // parts[1] = "0"
-      // parts[2] = "0"
-
-      int x = int.Parse(parts[1]);
-      int y = int.Parse(parts[2]);
-    } 
+      boatCount++;
+      HoverOn();
+      isOccupied =true;
+    }
   }
 
-
-  public void Init(bool isOffset)
+  private void OnTriggerExit2D(Collider2D other)
   {
-      rendColour.color = isOffset ? offsetColour : baseColour;
-      GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Tiles");
-
+    if (other.GetComponent<ShadowTile>() != null)
+    {
+      boatCount--;
+      if (boatCount <= 0)
+          HoverOff();
+    }
   }
 
-  // public void OnBoatDrop(BoatManager boat)
-  // {
-  //   boat.transform.position = transform.position;
-  //   Debug.Log("Boat Dropped");
-  // }
+  
+
+  public void HoverOn()
+  {
+    hover.SetActive(true);
+  }
+
+  public void HoverOff()
+  {
+    hover.SetActive(false);
+  }
+
 }
